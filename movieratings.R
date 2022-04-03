@@ -169,3 +169,11 @@ w + geom_point(size=1) +
 w + geom_point(aes(size=BudgetMillions)) +
   geom_smooth()+
   facet_grid(Genre~Year)
+
+
+# ---------- Coordinates
+w + geom_point(aes(size=BudgetMillions)) +
+  geom_smooth()+
+  facet_grid(Genre~Year) + 
+  coord_cartesian(ylim=c(0,100))
+
