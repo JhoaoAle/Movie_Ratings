@@ -12,4 +12,11 @@ head(movies)
 colnames(movies) <- c("Film", "Genre", "CriticRating", "AudicenceRating", "Budget(Millions)", "Year")
 head(movies)
 
+#Checking the structure of the dataset for initial analysis
 str(movies)
+
+#Summary of the dataset 
+summary(movies)
+
+#Is better for "Year" to be categorical so is possible to group by year, color by year, etc
+factor(movies$Year)
