@@ -54,8 +54,40 @@ p <- ggplot(data = movies, aes(x=CriticRating, y=AudienceRating,
 p + geom_point()
 
 #Lines
-p+ geom_line()
+# This doesn't really make any sense
+#p+ geom_line()
 
 #Multiple layers
-p + geom_line() + geom_point()
+# This doesn't really make any sense
+#p + geom_line() + geom_point()
+
+
+# ---------- Overriding aesthetics
+
+q <- ggplot(data = movies, aes(x=CriticRating, y=AudienceRating, 
+                               colour=Genre, size=BudgetMillions)) 
+
+#add geom layer
+q + geom_point()
+
+#Overriding aes
+
+# === This is mapping
+#Example 1: CriticRating overrides Budget
+q+ geom_point(aes(size=CriticRating))
+
+#Example 2: CriticRating overrides Genre in colour
+q+ geom_point(aes(color=BudgetMillions))
+
+#Although the variables get overriden, the original object is never modified; so q remains the same
+q+ geom_point()
+
+#Example 3: Overrding x axis; the name of the axis in the plot won't change unless xlab() is used
+q + geom_point(aes(x=BudgetMillions)) + xlab("Budget Millions $$$")
+# ===
+
+# === This is setting
+#Example 4: Reducing line size
+q + geom_line(size=1) + geom_point() # This is still pointless, but at least looks better
+
 
