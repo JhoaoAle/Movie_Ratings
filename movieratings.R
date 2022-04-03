@@ -92,7 +92,7 @@ q + geom_line(size=1) + geom_point() # This still doesn't make any sense, but at
 
 
 # ---------- HJistograms and Density Charts
-s <- q <- ggplot(data = movies, aes(x=BudgetMillions))
+s <- ggplot(data = movies, aes(x=BudgetMillions))
 s + geom_histogram(binwidth = 10)                                   
 
 #Add colour
@@ -102,5 +102,19 @@ s + geom_histogram(binwidth = 10, aes(fill=Genre))
 s + geom_histogram(binwidth = 10, aes(fill=Genre), colour="Black")
 
 #Density charts are sometimes useful
-s + geom_density(aes(fill=Genre), position="stack") #This is hard to explain when presenting this graphic
+s + geom_density(aes(fill=Genre), position="stack") #This is hard to explain when presenting this
 
+# ---------- Starting Layer Tips
+
+t <- ggplot(data = movies, aes(x=AudienceRating))
+t + geom_histogram(binwidth=10, fill="White", colour="Blue")
+
+#Another way
+t <- ggplot(data = movies)
+t + geom_histogram(binwidth=10, 
+                   aes (x=AudienceRating), 
+                   fill="White", colour="Blue")
+
+t + geom_histogram(binwidth=10, 
+                   aes (x=CriticRating), 
+                   fill="White", colour="Blue")
