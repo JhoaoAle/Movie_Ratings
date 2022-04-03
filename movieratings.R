@@ -177,3 +177,59 @@ w + geom_point(aes(size=BudgetMillions)) +
   facet_grid(Genre~Year) + 
   coord_cartesian(ylim=c(0,100))
 
+# ---------- Theme
+o <- ggplot(data = movies, aes(x=BudgetMillions))
+h <- o + geom_histogram(binwidth = 10, aes(fill=Genre), colour="Black")
+
+# Axis label
+h +
+  xlab("Money Axis") +
+  ylab("Number of Movies") +
+  theme(axis.title.x = element_text(colour="Dark Green", size=30),
+        axis.title.y = element_text(colour="Red", size=30))
+
+#Thick mark formatting
+h +
+  xlab("Money Axis") +
+  ylab("Number of Movies") +
+  theme(axis.title.x = element_text(colour="Dark Green", size=30),
+        axis.title.y = element_text(colour="Red", size=30),
+        axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=20))
+
+#Legend formatting
+h +
+  xlab("Money Axis") +
+  ylab("Number of Movies") +
+  theme(axis.title.x = element_text(colour="Dark Green", size=30),
+        axis.title.y = element_text(colour="Red", size=30),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 15),
+        legend.position = c(1,1),
+        legend.justification = c(1,1)
+        )
+
+#Title
+h +
+  xlab("Money Axis") +
+  ylab("Number of Movies") +
+  ggtitle("Movie Budget Distribution")+
+  theme(axis.title.x = element_text(colour="Dark Green", size=30),
+        axis.title.y = element_text(colour="Red", size=30),
+        axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 15),
+        legend.position = c(1,1),
+        legend.justification = c(1,1),
+        
+        plot.title = element_text(colour = "Dark Blue",
+                                  size=25,
+                                  family = "Courier New")
+  )
+
+
