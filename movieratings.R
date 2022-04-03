@@ -91,3 +91,16 @@ q + geom_point(aes(x=BudgetMillions)) + xlab("Budget Millions $$$")
 q + geom_line(size=1) + geom_point() # This still doesn't make any sense, but at least looks better
 
 
+# ---------- HJistograms and Density Charts
+s <- q <- ggplot(data = movies, aes(x=BudgetMillions))
+s + geom_histogram(binwidth = 10)                                   
+
+#Add colour
+s + geom_histogram(binwidth = 10, aes(fill=Genre))
+
+#Add a border
+s + geom_histogram(binwidth = 10, aes(fill=Genre), colour="Black")
+
+#Density charts are sometimes useful
+s + geom_density(aes(fill=Genre), position="stack") #This is hard to explain when presenting this graphic
+
