@@ -19,4 +19,5 @@ str(movies)
 summary(movies)
 
 #Is better for "Year" to be categorical so is possible to group by year, color by year, etc
-factor(movies$Year)
+movies$Year <- factor(movies$Year)
+str(movies)
