@@ -58,7 +58,7 @@ p + geom_point()
 #p+ geom_line()
 
 #Multiple layers
-# This doesn't really make any sense
+# This doesn't really make any sense either
 #p + geom_line() + geom_point()
 
 
@@ -88,6 +88,6 @@ q + geom_point(aes(x=BudgetMillions)) + xlab("Budget Millions $$$")
 
 # === This is setting
 #Example 4: Reducing line size
-q + geom_line(size=1) + geom_point() # This is still pointless, but at least looks better
+q + geom_line(size=1) + geom_point() # This still doesn't make any sense, but at least looks better
 
 
