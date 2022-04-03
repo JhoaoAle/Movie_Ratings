@@ -44,3 +44,18 @@ ggplot(data = movies, aes(x=CriticRating, y=AudienceRating,
                           colour=Genre, size=BudgetMillions)) + 
   geom_point()
 
+
+# ---------- Plotting with layers
+#The plot is assigned to an object
+p <- ggplot(data = movies, aes(x=CriticRating, y=AudienceRating, 
+                               colour=Genre, size=BudgetMillions)) 
+
+#Point
+p + geom_point()
+
+#Lines
+p+ geom_line()
+
+#Multiple layers
+p + geom_line() + geom_point()
+
