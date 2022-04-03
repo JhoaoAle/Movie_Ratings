@@ -82,7 +82,7 @@ q+ geom_point(aes(color=BudgetMillions))
 #Although the variables get overriden, the original object is never modified; so q remains the same
 q+ geom_point()
 
-#Example 3: Overrding x axis; the name of the axis in the plot won't change unless xlab() is used
+#Example 3: Overriding x axis; the name of the axis in the plot won't change unless xlab() is used
 q + geom_point(aes(x=BudgetMillions)) + xlab("Budget Millions $$$")
 # ===
 
@@ -146,3 +146,26 @@ u + geom_boxplot(size=1.2)
 u + geom_boxplot(size=1.2) + geom_jitter()
 
 u + geom_jitter() + geom_boxplot(size=1.2, alpha=0.5) 
+
+# ---------- Using Facets
+
+v <- ggplot(data = movies, aes(x=BudgetMillions))
+v + geom_histogram(binwidth=10, aes(fill=Genre),
+                   colour="Black") + facet_grid(Genre~., scales="free")
+
+# ---------- Scatterplots
+w <- ggplot(data = movies, aes(x=CriticRating, y=AudienceRating,
+                               colour=Genre))
+
+w + geom_point(size=3) +
+  facet_grid(Genre~.)
+
+w + geom_point(size=3) +
+  facet_grid(.~Year)
+
+w + geom_point(size=1) +
+  facet_grid(Genre~Year)
+
+w + geom_point(aes(size=BudgetMillions)) +
+  geom_smooth()+
+  facet_grid(Genre~Year)
